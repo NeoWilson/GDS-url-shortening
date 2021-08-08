@@ -10,8 +10,8 @@ var result = {full_url,slug}
 
 router.get("/:slug",async (req,res) => {
     try {
-        const urlRef = db.collection("urls")
-        const query = await urlRef.where("slug", "==",req.params.slug).get()
+        const urls = db.collection("urls")
+        const query = await urls.where("slug", "==",req.params.slug).get()
         if (query.empty){
             return res.status(404).json("URL Not Found")
         } else {
