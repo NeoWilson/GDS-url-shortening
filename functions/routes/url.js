@@ -3,7 +3,7 @@ const validator = require("validator")
 
 const router = express.Router()
 
-const baseURL = "http:localhost:5000"
+const baseURL = "http:localhost:5000/"
 
 const db = require("../config/config.js")
 
@@ -39,8 +39,8 @@ router.post("/shorten", async (req,res) =>{
                         slug: new_slug
                     })
                     console.log("Url Added to Firebase")
-                    res.end()
                     //Insert redirect back to homepage
+                    res.end(JSON.stringify(baseURL + new_slug))
                 }
             }
         } catch (err){
