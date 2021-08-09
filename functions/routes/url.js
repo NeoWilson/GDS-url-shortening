@@ -1,6 +1,5 @@
-
 const express = require("express")
-const validURL = require("valid-url")
+const validator = require("validator")
 
 const router = express.Router()
 
@@ -9,28 +8,47 @@ const baseURL = "http:localhost:5000"
 const db = require("../config/config.js")
 
 router.post("/shorten", async (req,res) =>{
-    if (!validURL.isUri(baseURL)){
-        return res.status(401).json("Invalid Base URL")
+    if (validator.isURL(baseURL)){
+        return res.status(500).json("Server Unreachable")
     }
-    const full_url = req.body.full_url        //Insert full url
-    const slug = req.body.slug                //Insert slug
-    if (!validURL.isUri(full_url)){
+    //console.log(req.body)
+    const full_url = req.body.fullUrl          //Insert full url
+    const new_slug = req.body.newSlug          //Insert slug
+    //console.log(new_slug)
+    //console.log(full_url)
+    if (validator.isURL(full_url)){
         try{
-            const check = await db.collection("urls").where("url", "==",full_url).get()
-            if (check){
-                return
+            //console.log("test2")
+            const urls = db.collection("urls")
+            const check1 = await urls.where("url", "==",full_url).get()
+            const check2 = await urls.where("slug", "==",new_slug).get()
+            //console.log(check1)
+            //console.log(check2)
+            if (!check1.empty){
+                console.log("check url failed")
+                res.status(403).json("Url is unavailable. Select another url.")
+                //Insert redirect back to homepage
             } else {
-                const res = await db.collection("urls").add({
-                    url: full_url,
-                    slug: slug
-                })
+                if (!check2.empty){
+                    console.log("check slug failed")
+                    res.status(403).json("Url slug is unavailable. Select another url slug.")
+                    //Insert redirect back to homepage
+                } else {
+                    const query = await urls.add({
+                        url: full_url,
+                        slug: new_slug
+                    })
+                    console.log("Url Added to Firebase")
+                    res.end()
+                    //Insert redirect back to homepage
+                }
             }
         } catch (err){
             console.log(err)
             res.status(500).json("Server Error")
         }
     } else {
-        res.status(401).json("Invalid full URL")
+        res.status(401).json("Invalid url")
     }
 })
 
