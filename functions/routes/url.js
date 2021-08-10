@@ -26,21 +26,18 @@ router.post("/shorten", async (req,res) =>{
             //console.log(check2)
             if (!check1.empty){
                 console.log("check url failed")
-                res.status(403).json("Url is unavailable. Select another url.")
-                //Insert redirect back to homepage
+                res.status(403).json("Url is unavailable. Try again thx")
             } else {
                 if (!check2.empty){
                     console.log("check slug failed")
-                    res.status(403).json("Url slug is unavailable. Select another url slug.")
-                    //Insert redirect back to homepage
+                    res.status(403).json("Url slug is unavailable.")
                 } else {
                     const query = await urls.add({
                         url: full_url,
                         slug: new_slug
                     })
                     console.log("Url Added to Firebase")
-                    //Insert redirect back to homepage
-                    res.end(JSON.stringify(baseURL + new_slug))
+                    res.end(JSON.stringify('"' + baseURL + new_slug + "\" added."))
                 }
             }
         } catch (err){
@@ -48,7 +45,7 @@ router.post("/shorten", async (req,res) =>{
             res.status(500).json("Server Error")
         }
     } else {
-        res.status(401).json("Invalid url")
+        res.status(401).json("Invalid URL")
     }
 })
 
