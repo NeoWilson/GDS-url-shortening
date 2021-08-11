@@ -1,8 +1,11 @@
 # GDS-Tech-Assessment: URL Shortening Service
 
+Frontend: React-Bootstrap, deployed on Vercel
+Backend: Express.js, deployed on Firebase Functions
+
 # Description:
 
-Frontend UI link: https://gds-url-shortening.vercel.app/
+Link: https://gds-url-shortening.vercel.app/
 
 To shorten URLs:
 1. Go to https://gds-url-shortening.vercel.app/
