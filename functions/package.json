@@ -1,23 +1,38 @@
 {
-  "name": "functions",
-  "description": "Cloud Functions for Firebase",
-  "scripts": {
-    "serve": "firebase emulators:start --only functions",
-    "shell": "firebase functions:shell",
-    "start": "npm run shell",
-    "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
-  },
-  "engines": {
-    "node": "14"
-  },
+  "name": "GDS-url-shortening",
+  "version": "1.0.0",
+  "description": "",
   "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NeoWilson/GDS-url-shortening.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NeoWilson/GDS-url-shortening/issues"
+  },
+  "homepage": "https://github.com/NeoWilson/GDS-url-shortening#readme",
   "dependencies": {
-    "firebase-admin": "^9.8.0",
-    "firebase-functions": "^3.14.1"
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^5.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-validator": "^6.12.1",
+    "firebase": "^8.9.1",
+    "firebase-admin": "^9.11.0",
+    "firebase-functions": "^3.14.1",
+    "react-bootstrap": "^2.0.0-beta.4",
+    "shortid": "^2.2.16",
+    "valid-url": "^1.0.9"
   },
   "devDependencies": {
-    "firebase-functions-test": "^0.2.0"
-  },
-  "private": true
+    "@types/cors": "^2.8.12",
+    "nodemon": "^2.0.12"
+  }
 }

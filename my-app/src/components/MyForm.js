@@ -1,11 +1,12 @@
 import React,  {Component} from 'react'
 import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
+import FormControl from 'react-bootstrap'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import axios from 'axios'
-import { FormControl, InputGroup } from 'react-bootstrap'
+
 
 class MyForm extends Component{
     state = {
@@ -33,7 +34,7 @@ class MyForm extends Component{
             newSlug: this.state.newSlug
         }
         
-        axios.post("http://localhost:5000/url/shorten",req)
+        axios.post("https://asia-southeast1-gds-url-shortening.cloudfunctions.net/app/url/shorten",req)
 
         .then(res=>{
             console.log(res)
@@ -54,52 +55,31 @@ class MyForm extends Component{
     render(){
         return(
             <Container>
-                <Form onSubmit = {this.handleSubmit}>
-                    <Row>
+                <Row className="justify-content-md-center">
+                    <Form onSubmit = {this.handleSubmit}>
                         <Form.Group className="mb-3">
-                            <Col>
-                                <Form.Label htmlFor="basic-url">Full URL:</Form.Label>
-                            </Col>
-                            <Col>
-                                <InputGroup className = "mb-3">
-                                    <FormControl placeholder="E.g: https://google.com" aria-label="fullUrl" onChange={this.handleChangeURL}></FormControl>
-                                </InputGroup>
-                            </Col>
+                            <Form.Label htmlFor="basic-url">Full URL:</Form.Label>
+                            <FormControl placeholder="E.g: https://google.com" aria-label="fullUrl" onChange={this.handleChangeURL}></FormControl>
                         </Form.Group>
-                    </Row>
-                    <Row>
                         <Form.Group className="mb-3">
-                            <Col>
-                                <Form.Label htmlFor="basic-url">URL Slug:</Form.Label> 
-                            </Col>
-                            <Col>
-                                <FormControl placeholder="E.g: google" aria-label="newSlug" onChange={this.handleChangeSlug}></FormControl>
-                            </Col>
+                            <Form.Label htmlFor="basic-url">URL Slug:</Form.Label>
+                            <FormControl placeholder="E.g: google" aria-label="newSlug" onChange={this.handleChangeSlug}></FormControl>
                         </Form.Group>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <br></br>
-                            <Button variant = "primary" type = "submit"> Shorten! </Button>
-                        </Col>
-                    </Row>
-                    <Row>
+
+                        <Button variant = "primary" type = "submit"> Shorten! </Button>
+
+                        <Form.Group className="mb-3">
+                            <Form.Label htmlFor="basic-url"><br></br>Status:</Form.Label>
+                        </Form.Group>
                         <Form.Group>
-                            <Row>
-                                <Form.Label htmlFor="basic-url"><br></br>Status:</Form.Label>
-                            </Row>
-                            <Row>
-                                {this.state.msg ? 
-                                <Form.Label htmlFor="basic-url">
-                                    <b>{this.state.msg}</b>
-                                </Form.Label> : 
+                            {this.state.msg ? <Form.Label htmlFor="basic-url">
+                                    <b>{this.state.msg}</b></Form.Label> : 
                                 <Form.Label htmlFor="basic-url">
                                     <b>Idle</b>
                                 </Form.Label>}
-                            </Row>
-                            </Form.Group>
-                    </Row>
-                </Form>
+                        </Form.Group>
+                    </Form>
+                </Row>
             </Container>
         )
     }

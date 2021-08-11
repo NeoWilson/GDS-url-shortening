@@ -1,6 +1,7 @@
 {
   "functions": {
-    "source": "functions"
+    "source": "functions",
+	  "runtime": "nodejs14"
   },
   "database": {
     "rules": "database.rules.json"
