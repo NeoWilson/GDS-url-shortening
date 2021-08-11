@@ -77,23 +77,28 @@ class MyForm extends Component{
                             </Col>
                         </Form.Group>
                     </Row>
-                    <Button variant = "primary" type = "submit"> Shorten! </Button>
                     <Row>
-                    <Form.Group className="mb-3">
                         <Col>
-                            <Form.Label htmlFor="basic-url"><br></br>Status:</Form.Label> 
+                            <br></br>
+                            <Button variant = "primary" type = "submit"> Shorten! </Button>
                         </Col>
-                        <Col>
-                            {this.state.msg ? 
-                            <Form.Label htmlFor="basic-url">
-                                <b>{this.state.msg}</b>
-                            </Form.Label> : 
-                            <Form.Label htmlFor="basic-url">
-                                <b>Idle</b>
-                            </Form.Label>}
-                        </Col>
-                    </Form.Group>
-                </Row>
+                    </Row>
+                    <Row>
+                        <Form.Group>
+                            <Row>
+                                <Form.Label htmlFor="basic-url"><br></br>Status:</Form.Label>
+                            </Row>
+                            <Row>
+                                {this.state.msg ? 
+                                <Form.Label htmlFor="basic-url">
+                                    <b>{this.state.msg}</b>
+                                </Form.Label> : 
+                                <Form.Label htmlFor="basic-url">
+                                    <b>Idle</b>
+                                </Form.Label>}
+                            </Row>
+                            </Form.Group>
+                    </Row>
                 </Form>
             </Container>
         )

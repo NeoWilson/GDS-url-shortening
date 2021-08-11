@@ -6,16 +6,13 @@ import MyForm from "./components/MyForm"
 
 function App() {
   return (
-    //<div>
-    //  <MyForm />
-    //</div>
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <br></br>
-        <p>
+        <div className="App-body">
           <MyForm />
-        </p>
+        </div>
       </header>
     </div>
     

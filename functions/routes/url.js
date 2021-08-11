@@ -11,19 +11,13 @@ router.post("/shorten", async (req,res) =>{
     if (validator.isURL(baseURL)){
         return res.status(500).json("Server Unreachable")
     }
-    //console.log(req.body)
     const full_url = req.body.fullUrl          //Insert full url
     const new_slug = req.body.newSlug          //Insert slug
-    //console.log(new_slug)
-    //console.log(full_url)
     if (validator.isURL(full_url)){
         try{
-            //console.log("test2")
             const urls = db.collection("urls")
             const check1 = await urls.where("url", "==",full_url).get()
             const check2 = await urls.where("slug", "==",new_slug).get()
-            //console.log(check1)
-            //console.log(check2)
             if (!check1.empty){
                 console.log("check url failed")
                 res.status(403).json("Url is unavailable. Try again thx")
