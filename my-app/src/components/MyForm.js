@@ -70,7 +70,11 @@ class MyForm extends Component{
                         <Form.Group className="mb-3">
                             <Form.Label htmlFor="basic-url"><br></br>Status:</Form.Label>
                         </Form.Group>
-                        <Form.Group>
+                    </Form>
+                </Row>
+                <Row className="justify-content-md-center">
+                    <Form>
+                        <Form.Group className="mb-3">
                             {this.state.msg ? <Form.Label htmlFor="basic-url">
                                     <b>{this.state.msg}</b></Form.Label> : 
                                 <Form.Label htmlFor="basic-url">
