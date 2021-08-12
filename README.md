@@ -18,4 +18,4 @@ To shorten URLs:
     - If there is no errors, it will display the newly shortened url
 
 To use shortened URLs:
-- Go to "https://asia-southeast1-gds-url-shortening.cloudfunctions.net/app/(slug)", where (slug) represents the URL slug saved for the specified URL
+- Go to "https://asia-southeast1-gds-url-shortening.cloudfunctions.net/app/(slug)", where (slug) represents the URL slug in use for the specified URL
