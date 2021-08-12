@@ -2,7 +2,7 @@
 
 Frontend: React-Bootstrap, deployed on Vercel (Frontend core files in "my-app" directory)
 
-Backend: Express.js, deployed on Firebase Functions (Backend core files in "functions" directory)
+Backend: Express.js, deployed on Firebase Functions and Hosting (Backend core files in "functions" directory)
 
 # Description:
 
@@ -10,7 +10,7 @@ Link: https://gds-url-shortening.vercel.app/
 
 To shorten URLs:
 1. Go to https://gds-url-shortening.vercel.app/
-2. Enter the full URL and a selected URL slug into the input fields
+2. Enter the full URL and the selected URL slug into the respective input fields
 3. Submit the request by clicking the 'Shorten!' button
 4. Status will then displayed 1 of the following:
     - Default status will be 'Idle'
@@ -18,4 +18,4 @@ To shorten URLs:
     - If there is no errors, it will display the newly shortened url
 
 To use shortened URLs:
-- Go to "https://asia-southeast1-gds-url-shortening.cloudfunctions.net/app/(slug)", where (slug) represents the URL slug in use for the specified URL
+- Go to "https://gds-url-shortening.web.app/(slug)", where (slug) represents the URL slug in use for the specified URL
