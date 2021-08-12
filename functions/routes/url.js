@@ -3,7 +3,7 @@ const validator = require("validator")
 
 const router = express.Router()
 
-const baseURL = "https://asia-southeast1-gds-url-shortening.cloudfunctions.net/app/"
+const baseURL = "https://gds-url-shortening.web.app/"
 
 const db = require("../config/config.js")
 

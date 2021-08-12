@@ -20,4 +20,4 @@ const port = process.env.port || 5000
 app.listen(port,() => console.log("Server start, listening to port",5000))  //Listening to port 5000
 */
 
-exports.app = functions.region('asia-southeast1').https.onRequest(app)
+exports.app = functions.https.onRequest(app)
