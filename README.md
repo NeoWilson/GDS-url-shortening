@@ -1,6 +1,7 @@
 # GDS-Tech-Assessment: URL Shortening Service
 
 Frontend: React-Bootstrap, deployed on Vercel
+
 Backend: Express.js, deployed on Firebase Functions
 
 # Description:
