@@ -12,12 +12,20 @@ router.get("/:slug",async (req,res) => {
         const urls = db.collection("urls")
         const query = await urls.where("slug", "==",req.params.slug).get()
         if (query.empty){
-            return res.status(404).json("URL Not Found")
+            return res.status(404).json("URL Not Found.")
         } else {
             query.forEach(doc => {
                 result = doc.data()
             })
-            return res.redirect(result.url)
+
+            url = result.url
+            //return res.redirect(url)
+            regexCheck = new RegExp ("^(http|https)://","i")    //Newly added to check url for "http" or "https"
+            if (regexCheck.test(url)){
+                res.redirect(url)
+            } else {
+                res.redirect("http://" + url)
+            }
         }
     } catch (err){
         console.error(err)
