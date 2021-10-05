@@ -1,4 +1,4 @@
-# GDS-Tech-Assessment: URL Shortening Service
+URL Shortening Service
 
 Frontend: React-Bootstrap, deployed on Vercel (Frontend core files in "my-app" directory)
 
